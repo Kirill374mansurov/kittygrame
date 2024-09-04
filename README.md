@@ -1,26 +1,78 @@
-#  Как работать с репозиторием финального задания
+# Проект Kittygram
 
-## Что нужно сделать
+[![Main Kittygram workflow](https://github.com/Kirill374mansurov/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/Kirill374mansurov/kittygram_final/actions/workflows/main.yml)
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+## Описание
 
-## Как проверить работу с помощью автотестов
+**Kittygram** - это проект, в котором пользователи в общее обозрение выкладывают своих котов и их достижения.
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+## Технологии
+
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![DjangoREST](https://img.shields.io/badge/DJANGO-REST-ff1709?style=for-the-badge&logo=django&logoColor=white&color=ff1709&labelColor=gray)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+
+## Авторы
+
+### [Кирилл Мансуров](https://github.com/Kirill374mansurov)</br>  
+
+## Функциональность
+
+- Можно добавлять фотографию котов.
+- Выбирать цвет из присутствующих.
+- Брать доступные достижения или добавлять свои.
+
+## Как запустить проект:
+
+Клонировать репозиторий и перейти в него в командной строке:
+
+```
+git clone https://github.com/yandex-praktikum/kittygram_backend.git
 ```
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+```
+cd kittygram_backend
+```
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+Cоздать и активировать виртуальное окружение:
 
-## Чек-лист для проверки перед отправкой задания
+```
+python -m venv venv
+```
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+* Если у вас Linux/macOS
+
+    ```
+    source env/bin/activate
+    ```
+
+* Если у вас windows
+
+    ```
+    source env/scripts/activate
+    ```
+
+```
+python -m pip install --upgrade pip
+```
+
+Установить зависимости из файла requirements.txt:
+
+```
+cd backend
+pip install -r requirements.txt
+```
+
+Выполнить миграции:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Запустить проект:
+
+```
+python manage.py runserver
+```
