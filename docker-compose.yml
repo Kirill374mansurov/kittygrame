@@ -29,7 +29,6 @@ services:
     image: kika374/kittygram_gateway
     env_file: .env
     depends_on:
-      - db
       - backend
       - frontend
     ports:
